@@ -1,0 +1,7 @@
+<h1>Welcome To the Blog</h1>
+
+<% @posts.each do |post| %>
+	<h3> 
+		<%= link_to post.title, post %> 
+	</h3>
+<% end %>
