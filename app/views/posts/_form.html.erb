@@ -4,14 +4,15 @@
 			<li><%= error %></li>
 		<% end %>
 	</ul>
+	<p>
+		<%= f.label :title %><br>
+		<%= f.text_field :title %>
+	</p>
 
-	<%= f.label :title %>
-	<%= f.text_field :title %>
-	<br>
-
-	<%= f.label :body %>
-	<%= f.text_area :body %>
-	<br>
+	<p>
+		<%= f.label :body %><br>
+		<%= f.text_area :body %>
+	</p>
 
 	<%= f.submit %>
 <% end %>
