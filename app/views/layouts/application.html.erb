@@ -9,6 +9,27 @@
   </head>
 
   <body>
+  	<div id="sidebar">
+  		<div id="logo">
+  			<%= link_to root_path do %>
+  				<%= image_tag "bbernheim.jpg" %>
+  			<% end %>	
+  		</div>
+  		<ul>
+  			<li class="category">Website</li>
+  			<li><%= link_to "Blog", root_path %></li>
+  			<li>About</li>
+  		</ul>
+
+  		 <ul>
+  			<!-- <li class="category">Social</li>
+  			<li><a href="https://www.linkedin.com/in/btbernheim/">LinkedIn</li>
+  			<li><a href="https://github.com/btbernheim">GitHub</li>
+  			<li><a href="https://www.facebook.com/brian.bernheim">FaceBook</li> -->
+  		</ul>
+  	</div>
+
     <%= yield %>
+
   </body>
 </html>
