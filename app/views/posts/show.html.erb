@@ -17,6 +17,6 @@
 		<p><%= link_to 'Edit', edit_post_path(@post) %></p>
 		<p><%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %></p>
 												<!-- method: tells rails what the link_to is doing i.e. dleteing, data: will dispay a pop up to ask a question before competing the request. -->
-		<p><%= link_to 'Home', root_path(@post) %></p>
+		<p><%= link_to 'Home', root_path %></p>
 	</div>
 </div>
