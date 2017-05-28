@@ -19,4 +19,11 @@
 												<!-- method: tells rails what the link_to is doing i.e. dleteing, data: will dispay a pop up to ask a question before competing the request. -->
 		<p><%= link_to 'Home', root_path %></p>
 	</div>
+
+	<div id="comments">
+		<h2><%= @post.comments.count %> Comments</h2>
+		<%= render @post.comments %>
+		<h3>Add A Comment</h3>
+		<%= render "comments/form" %>
+	</div>
 </div>
