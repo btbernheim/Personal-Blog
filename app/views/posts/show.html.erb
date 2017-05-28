@@ -1,20 +1,22 @@
-<h1 class="title">
-	<%= @post.title %>
-</h1>
-hello
-<p class="date">
-	Submitted <%= time_ago_in_words(@post.created_at) %> ago <br>
-	<% if @post.created_at != @post.updated_at %> 
-	<!-- Add feature to show submission  -->
-		Updated <%= time_ago_in_words(@post.updated_at) %> ago
-	<% end %>
-</p>
-<p class="body">
-	<%= @post.body %>
-</p>
+<div id="post_content">
+	<h1 class="title">
+		<%= @post.title %>
+	</h1>
+	<p class="date">
+		Submitted <%= time_ago_in_words(@post.created_at) %> ago <br>
+		<% if @post.created_at != @post.updated_at %> 
+		<!-- Add feature to show submission  -->
+			Updated <%= time_ago_in_words(@post.updated_at) %> ago
+		<% end %>
+	</p>
+	<p class="body">
+		<%= @post.body %>
+	</p>
 
-<div>
-	<p><%= link_to 'Edit', edit_post_path(@post) %></p>
-	<p><%= link_to 'Delete', post_path(@post), method: :delete %></p>
-	<p><%= link_to 'Home', root_path(@post) %></p>
+	<div>
+		<p><%= link_to 'Edit', edit_post_path(@post) %></p>
+		<p><%= link_to 'Delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %></p>
+												<!-- method: tells rails what the link_to is doing i.e. dleteing, data: will dispay a pop up to ask a question before competing the request. -->
+		<p><%= link_to 'Home', root_path(@post) %></p>
+	</div>
 </div>

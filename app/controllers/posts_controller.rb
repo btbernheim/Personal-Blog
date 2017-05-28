@@ -12,14 +12,13 @@ class PostsController < ApplicationController
 		if @post.save
 			redirect_to @post
 		else
+			flash[:notice] = "Unsuccessful form submission!"
 			render 'new' # use render instead of redirect for forms that have data that can be lost if .save fails
 		end
 	end
 
 	def show
 		@post = Post.find(params[:id])
-		@errors = @post.errors.full_messages
-		# using flash[:something] is better 
 	end
 
 	def edit
