@@ -4,7 +4,8 @@
     <title>Blog</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
@@ -12,7 +13,7 @@
   	<div id="sidebar">
   		<div id="logo">
   			<%= link_to root_path do %>
-  				<%= image_tag "bbernheim.jpg" %>
+  				<%= image_tag("logo.png", :alt => "rss feed", :height =>"35", :width => "58") %>
   			<% end %>	
   		</div>
   		<ul>
@@ -22,11 +23,29 @@
   		</ul>
 
   		 <ul>
-  			<!-- <li class="category">Social</li>
+  			<li class="category">Social</li>
   			<li><a href="https://www.linkedin.com/in/btbernheim/">LinkedIn</li>
   			<li><a href="https://github.com/btbernheim">GitHub</li>
-  			<li><a href="https://www.facebook.com/brian.bernheim">FaceBook</li> -->
+  			<li><a href="https://www.facebook.com/brian.bernheim">FaceBook</li>
   		</ul>
+
+  		<p class="sign_in">Admin Login</p>
+  	</div>
+
+  	<div id="main_content">
+  		<div id="header">
+  			<p>All Posts</p>
+  			<div class="buttons">
+  				<button class="button"><%= link_to "New Post", new_post_path %></button>
+  				<button class="button">Log Out</button>
+  			</div>
+  		</div>
+
+  		<% flash.each do |name, msg| %>
+  			<%= content_tag(:div, msg, class: "alert") %>
+  			<!-- content_tag() builds an HTML5 block tag of name and content -->
+  		<% end %>
+
   	</div>
 
     <%= yield %>
