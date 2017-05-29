@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+	before_action :authenticate_user!, except: [:index, :show]
+					#authenticate evrything but index and show pages
 	def index
 		@posts = Post.all.order('created_at DESC')
 	end
@@ -12,7 +14,6 @@ class PostsController < ApplicationController
 		if @post.save
 			redirect_to @post
 		else
-			flash[:notice] = "Unsuccessful form submission!"
 			render 'new' # use render instead of redirect for forms that have data that can be lost if .save fails
 		end
 	end
