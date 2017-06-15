@@ -10,51 +10,54 @@
   </head>
 
   <body>
-  	<div id="sidebar">
+  	<div id="navbar">
   		<div id="logo">
   			<%= link_to root_path do %>
-  				<%= image_tag("logo.png", :alt => "rss feed", :height =>"35", :width => "58") %>
+  				<%= image_tag("logo.png", :alt => "rss feed", :height =>"45", :width => "70") %>
   			<% end %>	
   		</div>
-  		<ul>
-  			<li class="category">Website</li>
-
+  		<div id="about">
         <% if !current_page?(root_path) %>
-  			 <li><%= link_to "Blog", root_path %></li>
+  			 <p class="links"><%= link_to "Blog", root_path %></p>
         <% end %>
 
         <% if !current_page?(about_index_path) %>
-  			 <li><%= link_to "About", about_index_path %></li>
+  			 <p class="about-blog"><%= link_to "About", about_index_path %></p>
         <% end %>
+  		</div>
 
-  		</ul>
+      <div id="social-media">
+    		<ul>
+    			<li><a class="links" href="https://www.linkedin.com/in/btbernheim/">LinkedIn</li>
+    			<li><a class="links" href="https://github.com/btbernheim">GitHub</li>
+    			<li><a class="links" href="https://www.facebook.com/brian.bernheim">FaceBook</li>
+    		</ul>
+      </div>
 
-  		 <ul>
-  			<li class="category">Social</li>
-  			<li><a href="https://www.linkedin.com/in/btbernheim/">LinkedIn</li>
-  			<li><a href="https://github.com/btbernheim">GitHub</li>
-  			<li><a href="https://www.facebook.com/brian.bernheim">FaceBook</li>
-  		</ul>
+      <h1 id="title">Personal Blog</h1>
 
       <% if !user_signed_in? %>
-        <p class="sign_in">Admin Login</p>
+          <button id="login" class="sign_in"><%= link_to("Login", new_user_session_path) %> </button> 
+          <button id="register" class="sign_in"><%= link_to("Register", new_user_registration_path) %></button>
       <% end %>
   	</div>
 
   	<div id="main_content">
   		<div id="header">
+
         <% if current_page?(root_path) %>
-    		  <p>All Posts</p>
+          <h3>All Posts</h3>
         <% else %>
           <%= link_to "Back To All Posts", root_path %>
         <% end %>
 
         <% if user_signed_in? %>
     			<div class="buttons">
-    				<button class="button"><%= link_to "New Post", new_post_path %></button>
-    				<button class="button">Log Out</button>
+    				<button class="button"><%= link_to("New Post", new_post_path) %></button>
+    				<button class="button"><%= link_to("Log Out", destroy_user_session_path, method: :delete) %>﻿</button>
     			</div>
         <% end %>
+
   		</div>
 
   		<% flash.each do |name, msg| %>
